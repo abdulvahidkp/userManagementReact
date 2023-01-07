@@ -1,5 +1,8 @@
 module.exports = {
-    getLogin:(req,res)=>{
+    postLogin:(req,res)=>{
+        
+    },
+    deleteUser:(req,res)=>{
         
     }
 }

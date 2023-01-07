@@ -8,10 +8,10 @@ const userRouter = require('./ROUTER/userRouter');
 const adminRouter = require('./ROUTER/adminRouter');
 
 app.use(express.json());
-
+https://github.com/abdulvahidkp/userManagementReact.git
 //mongodb connection
 mongoose.set("strictQuery", false);
-mongoose.connect('mongodb://localhost:27017/mernUserManagement');  
+mongoose.connect(process.env.mongodb);  
 
 app.use('/',userRouter)
 app.use('/admin',adminRouter);
