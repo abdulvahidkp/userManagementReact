@@ -18,7 +18,7 @@ module.exports = {
     postLogin: async (req, res) => {
         let user = await users.findOne({ userEmail: req.body.userEmail })
         if (!user) {
-            return res.status(400).json({ message: 'there have no user' })
+            return res.status(404).json({ message: 'there have no user' })
         }
         bcrypt.compare(req.body.password,user.password).then((response) => {
             if (response) {
@@ -39,7 +39,8 @@ module.exports = {
     },
     updateProfile: async (req, res) => {
         console.log(req.query);
-        await users.updateOne({ _id: req.query.id},{$set:{imageUrl:req.query.imageUrl}}).then(response=>{
+        let imageUrl = req.query.imageUrl
+        await users.updateOne({ _id: req.query.id},{$set:{imageUrl}}).then(response=>{
             res.status(200).json({message:"image updated successfully"})
         })
     }
