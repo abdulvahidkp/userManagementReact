@@ -18,7 +18,7 @@ module.exports = {
         })
     },
     getUsers:async(req,res)=>{
-        await users.find().then((response)=>{
+        await users.find({}).then((response)=>{
             res.json(response)
         })
     },
